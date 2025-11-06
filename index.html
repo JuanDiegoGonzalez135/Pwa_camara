@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#000000">
 
   <link rel="manifest" href="./manifest.json">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,16 +18,25 @@
       padding: 20px;
     }
 
-    video,
-    canvas {
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      margin-top: 10px;
+    h1 {
+      margin-bottom: 15px;
     }
 
     #cameraContainer {
       display: none;
       margin-top: 20px;
+    }
+
+    video,
+    canvas {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin-top: 10px;
+      width: 90%;
+      max-width: 350px;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 3/4;
     }
 
     button {
@@ -43,6 +53,22 @@
       background: gray;
       cursor: not-allowed;
     }
+
+    #photoContainer {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #photoContainer img {
+      width: 150px;
+      height: auto;
+      margin: 10px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      object-fit: cover;
+    }
   </style>
 </head>
 
@@ -51,13 +77,12 @@
 
   <button id="openCamera">Abrir Cámara</button>
 
-  <div id="cameraContainer" style="display:none;">
+  <div id="cameraContainer">
     <video id="video" autoplay playsinline></video>
+    <br>
     <button id="takePhoto">Tomar Foto</button>
-    <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
   </div>
 
-  <!-- Aquí se insertará la foto tomada -->
   <div id="photoContainer"></div>
 
   <script src="./app.js"></script>
